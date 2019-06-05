@@ -2,4 +2,6 @@
     <string name="app_name">SQLite_Inserting_Retrieving_Data_RecyclerView_Android_Github</string>
     <string name="text_comma">,</string>
     <string name="text_dollor">$</string>
+    <string name="text_buy">Buy</string>
+
 </resources>
