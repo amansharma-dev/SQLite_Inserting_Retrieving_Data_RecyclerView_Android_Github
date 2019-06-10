@@ -29,26 +29,13 @@ public class MainActivity extends AppCompatActivity {
 
         dataSource = new DataSource(this);
         dataSource.open();
+        dataSource.seedDatabase(dataItemList);
         Toast.makeText(getApplicationContext(),"Database Acquired",Toast.LENGTH_SHORT).show();
 
-
-        long numItems = dataSource.getDataItemCount();
-        if(numItems == 0){
-
-        for (DataItem item : dataItemList) {
-            try {
-                dataSource.createItem(item);
-            } catch (SQLiteException e) {
-                e.printStackTrace();
-            }
-        }
-        Toast.makeText(this,"Data inserted",Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this,"Data already inserted",Toast.LENGTH_LONG).show();
-        }
+        List<DataItem> listFromDb = dataSource.getAllItems();
 
 
-        DataItemAdapter dataItemAdapter = new DataItemAdapter(this,dataItemList);
+        DataItemAdapter dataItemAdapter = new DataItemAdapter(this,listFromDb);
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setAdapter(dataItemAdapter);
 

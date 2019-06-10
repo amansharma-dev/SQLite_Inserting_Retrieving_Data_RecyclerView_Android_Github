@@ -10,6 +10,10 @@ public class ItemsTable {
     public static final String COLUMN_ARTIST_GENRE = "artistGenre";
     public static final String COLUMN_SONG_PRICE = "songPrice";
 
+    public static final String[] ALL_COLUMNS = {COLUMN_ID,
+            COLUMN_ARTIST_IMAGE,COLUMN_SONG_NAME,COLUMN_ARTIST_NAME,
+            COLUMN_ARTIST_GENRE,COLUMN_SONG_PRICE};
+
     public static final String SQL_CREATE =
             "CREATE TABLE " + TABLE_NAME + "(" +
                     COLUMN_ID + " TEXT PRIMARY KEY," +
