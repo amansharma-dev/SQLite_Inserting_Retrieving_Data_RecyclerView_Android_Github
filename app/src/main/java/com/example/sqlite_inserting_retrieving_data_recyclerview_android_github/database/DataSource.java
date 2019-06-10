@@ -56,9 +56,9 @@ public class DataSource {
                     e.printStackTrace();
                 }
             }
-            Toast.makeText(context,"Data inserted.",Toast.LENGTH_LONG).show();
+      //      Toast.makeText(context,"Data inserted.",Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(context,"Data already inserted.",Toast.LENGTH_LONG).show();
+      //      Toast.makeText(context,"Data already inserted.",Toast.LENGTH_LONG).show();
         }
     }
 
