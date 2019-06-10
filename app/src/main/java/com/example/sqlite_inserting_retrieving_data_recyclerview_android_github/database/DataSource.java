@@ -64,7 +64,7 @@ public class DataSource {
 
     public List<DataItem> getAllItems(){
         List<DataItem> dataItemList = new ArrayList<>();
-        Cursor cursor = sqLiteDatabase.query(ItemsTable.TABLE_NAME,ItemsTable.ALL_COLUMNS,null,null,null,null,null);
+        Cursor cursor = sqLiteDatabase.query(ItemsTable.TABLE_NAME,ItemsTable.ALL_COLUMNS,null,null,null,null,ItemsTable.COLUMN_SONG_NAME);
         while (cursor.moveToNext()){
             DataItem dataItem = new DataItem();
             dataItem.setItemId(cursor.getString(cursor.getColumnIndex(ItemsTable.COLUMN_ID)));
