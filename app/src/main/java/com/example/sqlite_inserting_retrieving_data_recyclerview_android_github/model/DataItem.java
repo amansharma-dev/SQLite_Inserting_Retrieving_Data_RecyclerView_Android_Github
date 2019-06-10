@@ -1,5 +1,11 @@
 package com.example.sqlite_inserting_retrieving_data_recyclerview_android_github.model;
 
+import android.content.ContentValues;
+
+import com.example.sqlite_inserting_retrieving_data_recyclerview_android_github.database.ItemsTable;
+
+import java.util.UUID;
+
 public class DataItem {
 
     private String itemId;
@@ -12,6 +18,11 @@ public class DataItem {
     public DataItem(){}
 
     public DataItem(String itemId, String artistImage, String songName, String artistName, String artistGenre, double songPrice) {
+
+        if(itemId == null){
+            itemId = UUID.randomUUID().toString();
+        }
+
         this.itemId = itemId;
         this.artistImage = artistImage;
         this.songName = songName;
@@ -66,6 +77,18 @@ public class DataItem {
 
     public void setSongPrice(double songPrice) {
         this.songPrice = songPrice;
+    }
+
+    public ContentValues contentValues(){
+        ContentValues contentValues = new ContentValues(6);
+        contentValues.put(ItemsTable.COLUMN_ID,itemId);
+        contentValues.put(ItemsTable.COLUMN_ARTIST_IMAGE,artistImage);
+        contentValues.put(ItemsTable.COLUMN_SONG_NAME,songName);
+        contentValues.put(ItemsTable.COLUMN_ARTIST_NAME,artistName);
+        contentValues.put(ItemsTable.COLUMN_ARTIST_GENRE,artistGenre);
+        contentValues.put(ItemsTable.COLUMN_SONG_PRICE,songPrice);
+
+        return contentValues;
     }
 
     @Override
